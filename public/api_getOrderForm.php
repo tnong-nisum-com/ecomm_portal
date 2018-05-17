@@ -1,4 +1,5 @@
 <?php
+$curl = curl_init();
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://nisumusa.vtexcommercestable.com.br/api/checkout/pub/orderForm",
   CURLOPT_RETURNTRANSFER => true,
