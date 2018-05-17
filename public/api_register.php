@@ -2,9 +2,16 @@
 $curl = curl_init();
 $data = $_REQUEST['data'];
 $data = json_decode($data);
-$cartParams = '{"orderItems":[{"seller":"1","quantity":' . $data->qty . ',"id":"' . $data->sku . '","index":2,"hasBundleItems":false}],"expectedOrderFormSections":["items","totalizers","clientProfileData","shippingData","paymentData","sellers","messages","marketingData","clientPreferencesData","storePreferencesData","giftRegistryData","ratesAndBenefitsData","openTextField","commercialConditionData","customData"],"noSplitItem":true}';
+$cartParams = '{ 
+  "firstName" : "' . $data->firstname . '",
+  "lastName" : "' . $data->lastname . '", 
+  "email" : "' . $data->email . '",
+  "isNewsletterOptIn" : "' . $data->optin . '"
+}';
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://nisumusa.vtexcommercestable.com.br/api/checkout/pub/orderForm/f04c983604e1425d8c65d2835572ca9f/items",
+  CURLOPT_URL => "https://api.vtex.com/nisumusa/dataentities/CL/documents",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
@@ -18,7 +25,6 @@ curl_setopt_array($curl, array(
 ));
 
 $response = curl_exec($curl);
-//curl_getinfo($curl);
 $err = curl_error($curl);
 
 curl_close($curl);
@@ -28,3 +34,4 @@ if ($err) {
 } else {
   echo $response;
 }
+
