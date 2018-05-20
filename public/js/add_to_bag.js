@@ -13,10 +13,6 @@
                     itemList[OrderForm.items[i].id] = OrderForm.items[i].quantity;
                     quantity += OrderForm.items[i].quantity;
                  } 
-                 
-                //update current state of the cart
-                var string = $('.cart-info .items').text().replace(/[0-9]+/g, quantity);
-                $('.cart-info .items').text(string);
             });
             
             //disable add to cart click and increment bag count
@@ -45,6 +41,14 @@
                 $(this).unbind('click');
             }
         });
+        
+        var updateCartCount = function(quantity){
+            //update current state of the cart
+            var string = $('.cart-info .items').text().replace(/[0-9]+/g, quantity);
+            $('.cart-info .items').text(string);
+            //update global count
+            bagCount = quantity;
+        };
         
         
         var postCart = function(){
@@ -83,8 +87,7 @@
                     //update current state of the cart
                     var count = $('.cart-info .items').text().match(/[0-9]/g)*1;
                     count++;
-                    var countString = $('.cart-info .items').text().replace(/[0-9]+/g, count);
-                    $('.cart-info .items').text(countString);
+                    updateCartCount(count);
                 }
             });
         };
