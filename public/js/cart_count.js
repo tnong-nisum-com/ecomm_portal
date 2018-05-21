@@ -1,4 +1,4 @@
-var itemList;
+var itemList = {};
 var bagCount = 0;
 var quantity = 0; 
 
@@ -17,9 +17,9 @@ $(document).ready(function(){
     var updateCartCount = function(quantity){
         //update current state of the cart
         var string = $('.cart-info .items').text().replace(/[0-9]+/g, quantity);
+	string = string.match(/[0-9]+/g);
         $('.cart-info .items').text(string);
         //update global count
         bagCount = quantity;
     };
 });
-
