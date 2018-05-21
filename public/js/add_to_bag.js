@@ -36,15 +36,6 @@
         //clicking bag icon would go to checkout
         $('.shop-cart-button').attr('href', checkoutHREF);
         
-        //allow click only if cart is greater than 0
-//        $('.shop-cart-button').click(function(e){
-//            if(bagCount === 0){
-//                e.preventDefault();
-//            }else{
-//                $(this).unbind('click');
-//            }
-//        });
-        
         var updateCartCount = function(quantity){
             //update current state of the cart
             var string = $('.cart-info .items').text().replace(/[0-9]+/g, quantity);
@@ -52,7 +43,6 @@
             //update global count
             bagCount = quantity;
         };
-        
         
         var postCart = function(){
             $.ajax({
@@ -72,14 +62,13 @@
             //update item quantity
             if(itemObj[data.sku] !== undefined){
                 //update item quantity
-                data.qty = itemObj[data.sku] + 1;
+                data.qty = itemObj[data.sku]*1 + 1;
             }else{
                 data.qty = 1;
             }
             
             //save as string so can be ajax-ed
             data = JSON.stringify(data);
-            
             $.ajax({
                 url: url,
                 data: 'data=' + data,
