@@ -2,7 +2,7 @@ var itemList;
 var bagCount = 0;
 var quantity = 0; 
 
-$(window).ready(function(){
+$(document).ready(function(){
     vtexjs.checkout.getOrderForm()
     .done(function(OrderForm){
         for(var i = 0; i < OrderForm.items.length; i++){
