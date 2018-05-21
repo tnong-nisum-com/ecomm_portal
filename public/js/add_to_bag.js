@@ -34,13 +34,13 @@
         $('.shop-cart-button').attr('href', checkoutHREF);
         
         //allow click only if cart is greater than 0
-        $('.shop-cart-button').click(function(e){
-            if(bagCount === 0){
-                e.preventDefault();
-            }else{
-                $(this).unbind('click');
-            }
-        });
+//        $('.shop-cart-button').click(function(e){
+//            if(bagCount === 0){
+//                e.preventDefault();
+//            }else{
+//                $(this).unbind('click');
+//            }
+//        });
         
         var updateCartCount = function(quantity){
             //update current state of the cart
