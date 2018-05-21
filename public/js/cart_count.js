@@ -10,7 +10,7 @@ $(document).ready(function(){
             itemList[OrderForm.items[i].id] = OrderForm.items[i].quantity;
             quantity += OrderForm.items[i].quantity;
          } 
-console.log(quantity);return false;
+console.log('Quantity:' + quantity);return false;
          quantity = quantity*1;
          updateCartCount(quantity);
     });
