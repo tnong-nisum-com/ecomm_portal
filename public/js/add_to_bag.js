@@ -13,6 +13,9 @@
                     itemList[OrderForm.items[i].id] = OrderForm.items[i].quantity;
                     quantity += OrderForm.items[i].quantity;
                  } 
+                 
+                 quantity = quantity*1;
+                 updateCartCount(quantity);
             });
             
             //disable add to cart click and increment bag count
