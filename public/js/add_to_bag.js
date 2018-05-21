@@ -5,19 +5,6 @@
         var itemList = {};
         
         $(document).ready(function(){
-            vtexjs.checkout.getOrderForm()
-            .done(function(OrderForm){
-                var quantity = 0; 
-            
-                for(var i = 0; i < OrderForm.items.length; i++){
-                    itemList[OrderForm.items[i].id] = OrderForm.items[i].quantity;
-                    quantity += OrderForm.items[i].quantity;
-                 } 
-                 
-                 quantity = quantity*1;
-                 updateCartCount(quantity);
-            });
-            
             //disable add to cart click and increment bag count
             $('.add a').click(function(e){
                 e.preventDefault();
@@ -36,7 +23,17 @@
         //clicking bag icon would go to checkout
         $('.shop-cart-button').attr('href', checkoutHREF);
         
-        var updateCartCount = function(quantity){
+        //get current cart and update
+        var updateCartCount = function(){
+            var quantity = 0; 
+            vtexjs.checkout.getOrderForm()
+            .done(function(OrderForm){
+                for(var i = 0; i < OrderForm.items.length; i++){
+                    itemList[OrderForm.items[i].id] = OrderForm.items[i].quantity;
+                    quantity += OrderForm.items[i].quantity;
+                 } 
+                 quantity = quantity*1;
+            });
             //update current state of the cart
             var string = $('.cart-info .items').text().replace(/[0-9]+/g, quantity);
             $('.cart-info .items').text(string);
@@ -79,7 +76,7 @@
                     //update current state of the cart
                     var count = $('.cart-info .items').text().match(/[0-9]/g)*1;
                     count++;
-                    updateCartCount(count);
+                    updateCartCount();
                 }
             });
         };
