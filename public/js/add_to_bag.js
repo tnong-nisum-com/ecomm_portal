@@ -39,14 +39,13 @@
                     itemList[OrderForm.items[i].id] = OrderForm.items[i].quantity;
                     quantity += OrderForm.items[i].quantity;
                  } 
-                 quantity = quantity*1;
+                quantity = quantity*1;
+                 //update current state of the cart
+                var string = $('.cart-info .items').text().replace(/[0-9]+/g, quantity);
+                $('.cart-info .items').text(string);
+                //update global count
+                bagCount = quantity;
             });
-            
-            //update current state of the cart
-            var string = $('.cart-info .items').text().replace(/[0-9]+/g, quantity);
-            $('.cart-info .items').text(string);
-            //update global count
-            bagCount = quantity;
         };
         
         var bridgeCORS = function(iLink, itemObj){
@@ -75,9 +74,6 @@
                 type: 'post',
                 success: function(html){
                     //update current state of the cart
-                    //update current state of the cart
-                    var count = $('.cart-info .items').text().match(/[0-9]/g)*1;
-                    count++;
                     updateCartCount();
                 }
             });
