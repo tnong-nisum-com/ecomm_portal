@@ -40,6 +40,7 @@
                  } 
                  quantity = quantity*1;
             });
+            console.log('quantity: ' + quantity);
             //update current state of the cart
             var string = $('.cart-info .items').text().replace(/[0-9]+/g, quantity);
             $('.cart-info .items').text(string);
