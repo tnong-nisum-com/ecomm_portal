@@ -3,8 +3,10 @@ $curl = curl_init();
 $data = $_REQUEST['data'];
 $data = json_decode($data);
 $cartParams = '{"orderItems":[{"seller":"1","quantity":' . $data->qty . ',"id":"' . $data->sku . '","index":2,"hasBundleItems":false}],"expectedOrderFormSections":["items","totalizers","clientProfileData","shippingData","paymentData","sellers","messages","marketingData","clientPreferencesData","storePreferencesData","giftRegistryData","ratesAndBenefitsData","openTextField","commercialConditionData","customData"],"noSplitItem":true}';
+$url = "https://nisumusa.vtexcommercestable.com.br/api/checkout/pub/orderForm/" . $data->orderFormId . "/items";
+
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://nisumusa.vtexcommercestable.com.br/api/checkout/pub/orderForm/caf336f926841f71752208033d543f8e/items",
+  CURLOPT_URL => $url,
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
