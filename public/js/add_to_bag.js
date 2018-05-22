@@ -4,6 +4,7 @@
         var itemHREF = null;
         var itemList = {};
         var order_form_id = null;
+        var quantity = 0; 
         
         
         $(document).ready(function(){
@@ -31,7 +32,7 @@
         
         //get current cart and update
         var updateCartCount = function(){
-            var quantity = 0; 
+            quantity = 0;
             vtexjs.checkout.getOrderForm()
             .done(function(OrderForm){
                 for(var i = 0; i < OrderForm.items.length; i++){
@@ -40,7 +41,7 @@
                  } 
                  quantity = quantity*1;
             });
-            console.log('quantity: ' + quantity);
+            
             //update current state of the cart
             var string = $('.cart-info .items').text().replace(/[0-9]+/g, quantity);
             $('.cart-info .items').text(string);
