@@ -3,17 +3,22 @@
         var productCount = $('em.amount-products-em').text()*1;
         var itemHREF = null;
         var itemList = {};
+        var order_form_id = null;
+        
         
         $(document).ready(function(){
             //disable add to cart click and increment bag count
             $('.add a').click(function(e){
                 e.preventDefault();
                 var buyLink = $(this).attr('href');
-                //buy item
-                bridgeCORS(buyLink, itemList);
+                //get orderFormId
+                vtexjs.checkout.getOrderForm()
+                .done(function(OrderForm){
+                    order_form_id = OrderForm.orderFormId;
+                    bridgeCORS(buyLink, itemList);
+                });
             });
         });
-        
         
         //set bag count
         $('.cart-info .items').text(bagCount);
@@ -22,6 +27,7 @@
 
         //clicking bag icon would go to checkout
         $('.shop-cart-button').attr('href', checkoutHREF);
+        
         
         //get current cart and update
         var updateCartCount = function(){
@@ -41,16 +47,6 @@
             bagCount = quantity;
         };
         
-        var postCart = function(){
-            $.ajax({
-                url: '/api/checkout/pub/orderForm/f04c983604e1425d8c65d2835572ca9f/items/update/',
-                type: 'post',
-                success: function(html){
-                    console.log(html);
-                }
-            });
-        };
-        
         var bridgeCORS = function(iLink, itemObj){
             var url = 'https://216.218.200.215/cart.php';
             var vtexLink = iLink.split('?')[0];
@@ -63,9 +59,12 @@
             }else{
                 data.qty = 1;
             }
+            //add orderFormId
+            data.orderFormId = order_form_id;
             
             //save as string so can be ajax-ed
             data = JSON.stringify(data);
+            
             $.ajax({
                 url: url,
                 data: 'data=' + data,
