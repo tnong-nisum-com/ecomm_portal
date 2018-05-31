@@ -7,9 +7,9 @@ $('.add a').text('Add');
 //Buy button
 $('.buy-button').text('Add to Cart');
 
-$(document).ready(function(){
-    $('.product-description .btn-group a:first-child').text('Product Description');
-    $('.product-description .btn-group a:nth-child(2)').text('Product Specifications');
+$(window).ready(function(){
+    $('.product-description .btn-group a:first-child').text('Description');
+    $('.product-description .btn-group a:nth-child(2)').text('Specifications');
     $('.product-description .btn-group a:nth-child(3)').text('Reviews');
 });
 
