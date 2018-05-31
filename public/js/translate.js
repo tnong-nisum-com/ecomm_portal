@@ -1,8 +1,11 @@
 //Translate controls
-$('.btn-comparar, .buy-button').text('Compare');
+$('.btn-comparar').text('Compare');
 
 //Translate cart
 $('.add a').text('Add');
+
+//Buy button
+$('.buy-button').text('Add to Cart');
 
 $(document).ready(function(){
     $('.product-description .btn-group a:first-child').text('Product Description');
