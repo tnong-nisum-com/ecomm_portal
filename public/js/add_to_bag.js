@@ -24,8 +24,6 @@
         //set bag count
         $('.cart-info .items').text(bagCount);
         
-        $('.add a').text('Add');
-
         //clicking bag icon would go to checkout
         $('.shop-cart-button').attr('href', checkoutHREF);
         
