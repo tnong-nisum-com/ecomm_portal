@@ -1,0 +1,22 @@
+/*
+Translator
+*/
+/* 
+    Created on : May 31, 2018, 12:49:25 PM
+    Author     : tnong
+*/
+
+/*Hide Navigation Tabs*/
+.navigation-tabs{
+    display: none;
+}
+
+/*Pagination Translation*/
+.pages .next{visibility: hidden;}
+.pages .next:after{visibility: visible;content:'Next'; position: relative; left: -54px;}
+.pages .last{visibility: hidden;}
+.pages .last:after{visibility: visible; content: 'Last'; position: relative; left: -44px;}
+.pages .first{visibility: hidden;}
+.pages .first:after{visibility: visible; content: 'First'; position: relative; left: -65px;}
+.pages .previous{visibility: hidden;}
+.pages .previous:after{visibility: visible; content: 'Prev'; position: relative; left: -65px;}
