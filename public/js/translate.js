@@ -1,5 +1,5 @@
 //Translate controls
-$('.btn-comparar').text('Compare');
+$('.btn-comparar, .buy-button').text('Compare');
 
 //Translate cart
 $('.add a').text('Add');
