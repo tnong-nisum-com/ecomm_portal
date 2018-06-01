@@ -4,7 +4,7 @@ $entity = $_POST['entity'];
 $document_id = $_POST['id'];
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "https://nisumusa.vtexcommercestable.com.br/api/dataentities/" . $entity . "/documents/" . $document_id,
+  CURLOPT_URL => "https://api.vtex.com/nisumusa/dataentities/" . $entity . "/documents/" . $document_id,
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
