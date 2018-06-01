@@ -2,7 +2,7 @@
 $curl = curl_init();
 $entity = $_POST['entity'];
 $document_id = $_POST['id'];
-print_r($_POST);die;
+
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://nisumusa.vtexcommercestable.com.br/api/dataentities/" . $entity . "/documents/" . $document_id,
   CURLOPT_RETURNTRANSFER => true,
