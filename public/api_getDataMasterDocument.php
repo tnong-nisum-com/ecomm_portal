@@ -2,9 +2,15 @@
 $curl = curl_init();
 $entity = $_POST['entity'];
 $document_id = $_POST['id'];
-
+$view_all = $_POST['view_all'];
+//if $view_all exists
+if(isset($view_all) || !empty($view_all)){
+    $url = "http://api.vtex.com/Nisum/dataentities/" . $entity . "/documents/" . $document_id . '?_fields=_all';
+}else{
+    $url = "http://api.vtex.com/Nisum/dataentities/" . $entity . "/documents/" . $document_id;
+}
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://api.vtex.com/Nisum/dataentities/" . $entity . "/documents/" . $document_id . '?_fields=_all',
+  CURLOPT_URL => $url,
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
