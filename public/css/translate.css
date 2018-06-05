@@ -20,6 +20,14 @@ Translator
 .pages .first:after{visibility: visible; content: 'First'; position: relative; left: -65px;}
 .pages .previous{visibility: hidden;}
 .pages .previous:after{visibility: visible; content: 'Prev'; position: relative; left: -65px;}
+
+/*Cart table adjustment*/
+td.quantity input{
+	width: 265px;
+}
+/*Cart Translations
+h1#cart-title{visibility: hidden;}
+h1#cart-title:after{content: 'My Cart';visibility: visible;float: left;}
 th.product{visibility: hidden;}
 th.product:after{visibility: visible; content: 'Product'; position: relative; float: left;}
 th.shipping-date{visibility: hidden;}
@@ -28,11 +36,12 @@ th.product-price{visibility: hidden;}
 th.product-price:after{visibility: visible; content: 'Price'; position: relative; float: left;}
 th.quantity{visibility: hidden;}
 th.quantity:after{visibility: visible; content: 'Quantity'; position: relative; float: left;}
-/*td.info[data-i18n='totalizers.Tax']{visibility: hidden;}*/
-td.info[data-i18n='totalizers.Tax']:after{
+td.info[data-i18n='totalizers.Tax']{visibility: hidden;}
+td.info[data-i18n='totalizers.Tax']:before{
+	position: relative;
     visibility: visible; 
     content: 'Tax'; 
-    position: relative;
     float: right;
     background-color: #d9edf7;
 }
+*/
