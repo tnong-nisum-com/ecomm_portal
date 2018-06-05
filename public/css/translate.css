@@ -28,10 +28,11 @@ th.product-price{visibility: hidden;}
 th.product-price:after{visibility: visible; content: 'Price'; position: relative; float: left;}
 th.quantity{visibility: hidden;}
 th.quantity:after{visibility: visible; content: 'Quantity'; position: relative; float: left;}
-td.info[data-i18n='totalizers.Tax']{visibility: hidden;}
+/*td.info[data-i18n='totalizers.Tax']{visibility: hidden;}*/
 td.info[data-i18n='totalizers.Tax']:after{
     visibility: visible; 
     content: 'Tax'; 
     position: relative;
     float: right;
+    background-color: #d9edf7;
 }
