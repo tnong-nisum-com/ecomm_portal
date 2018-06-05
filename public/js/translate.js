@@ -12,10 +12,10 @@ $(window).ready(function(){
     $('.product-description .btn-group a:nth-child(2)').text('Specifications');
     $('.product-description .btn-group a:nth-child(3)').text('Reviews');
     //Translations for cart
-    $('#cartLoadedDiv > div.cart > table > thead > tr > th.product').text('Product');
-    $('#cartLoadedDiv > div.cart > table > thead > tr > th.shipping-date').text('Delivery');
-    $('#cartLoadedDiv > div.cart > table > thead > tr > th.product-price').text('Price');
-    $('#cartLoadedDiv > div.cart > table > thead > tr > th.quantity').text('Quantity');
+    $('.product').text('Product');
+    $('.shipping_date').text('Delivery');
+    $('.product-price').text('Price');
+    $('.quantity').text('Quantity');
         
 });
 
