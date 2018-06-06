@@ -1,7 +1,7 @@
 <?php
 $curl = curl_init();
-$data = $_REQUEST['data'];
-echo $data;die;
+$email = $_REQUEST['email'];
+echo $mail;die;
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://nisumusa.vtexcommercestable.com.br/api/ds/pub/documents/CL",
   CURLOPT_RETURNTRANSFER => true,
@@ -9,7 +9,7 @@ curl_setopt_array($curl, array(
   CURLOPT_MAXREDIRS => 10,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_POSTFIELDS => $cartParams,
   CURLOPT_HTTPHEADER => array(
     "Content-Type: application/json",
