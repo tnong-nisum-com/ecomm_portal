@@ -1,7 +1,7 @@
 <?php
 $curl = curl_init();
 $email = $_REQUEST['email'];
-echo $email;die;
+
 curl_setopt_array($curl, array(
   CURLOPT_URL => "https://nisumusa.vtexcommercestable.com.br/api/ds/pub/documents/CL",
   CURLOPT_RETURNTRANSFER => true,
@@ -26,6 +26,17 @@ curl_close($curl);
 if ($err) {
   echo "cURL Error #:" . $err;
 } else {
-  echo $response;
+	$client_list = json_decode($response);
+	$client_email = [];
+	foreach($client_list->Documents as $client){
+		array_push($client_email, $client->email);
+	}
+	//check if email exists
+	if(in_array($email, $client_email)){
+		echo '{"confirm":1}';
+	}else{
+		echo '{"confirm":0}';
+	}
+	die;
 }
 
