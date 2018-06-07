@@ -26,7 +26,7 @@ td.quantity input{
 	width: 265px;
 }
 .container-main{
- visibility: hidden;
+/* visibility: hidden;*/
 }
 /*Cart Translations
 h1#cart-title{visibility: hidden;}
