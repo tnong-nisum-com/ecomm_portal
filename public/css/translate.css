@@ -25,6 +25,9 @@ Translator
 td.quantity input{
 	width: 265px;
 }
+.container-main{
+ visibility: hidden;
+}
 /*Cart Translations
 h1#cart-title{visibility: hidden;}
 h1#cart-title:after{content: 'My Cart';visibility: visible;float: left;}
