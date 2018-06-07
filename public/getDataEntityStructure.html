@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Test Master Data forms</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="jquery-1.6.min.js"></script>
+        <style type="text/css">
+            #entities ul{
+                list-style: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <form action="javascript:" id="newsletter-validate-detail" class="input-group">
+                <input name="entity" id="entity" title="Enter the entity you want to search..." placeholder="Enter the entity..." class="form-control required-entry validate-email" type="text">
+                <div class="input-group-btn">
+                    <button class="btn button btnSignUp" type="submit"><span>Submit</span></button>
+                </div>
+            </form>
+        </div>
+        <script>
+            $('button.btnSignUp').click(function(e){
+                e.preventDefault();
+                getEntityStructure();
+            });
+            
+            var getEntityStructure = function(){
+                var entity = 'entity=' + $('#entity').val();
+                console.log(entity);
+                $.ajax({
+                    url: 'https://216.218.200.215/api_getDataEntityStructure.php',
+                    data: entity,
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function(data){
+                        console.log(data);
+    //                    var html = '<ul>';
+    //                    for(var i = 0; i < data.length; i++){
+    //                        html += '<li>Acronym: ' + data[i].acronym + ' Name: ' + data[i].name + ' Primary Key Type: ' + data[i].primaryKeyType + ' Allowed Get All: ' + data[i].allowGetAll + '</li>';
+    //                    }
+    //                    html += '</ul>';
+    //                    $('#entities').html(html);
+                    }
+                });
+            };
+            
+            
+        </script>
+    </body>
+    
+</html>
