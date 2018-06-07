@@ -33,11 +33,10 @@ and open the template in the editor.
             
             var getEntityStructure = function(){
                 var entity = 'entity=' + $('#entity').val();
-                console.log(entity);
                 $.ajax({
                     url: 'https://216.218.200.215/api_getDataEntityStructure.php',
-                    data: entity,
-                    type: 'POST',
+                    data: 'entity=' + entity,
+                    type: 'GET',
                     dataType: 'json',
                     success: function(data){
                         console.log(data);
