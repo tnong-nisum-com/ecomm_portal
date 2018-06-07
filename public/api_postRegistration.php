@@ -1,8 +1,9 @@
 <?php
 $curl = curl_init();
 $data_entity = $_REQUEST['entity'];
-$form = $_REQUEST['form'];
+$mail = $_REQUEST['email'];
 $url =  "http://api.vtex.com/nisumusa/dataentities/" . $data_entity . "/documents";
+$form = '{"email":' . $mail . '}';
 
 curl_setopt_array($curl, array(
   CURLOPT_URL => $url,
