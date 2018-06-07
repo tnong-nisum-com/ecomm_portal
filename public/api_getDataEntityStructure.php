@@ -1,8 +1,10 @@
 <?php
 $curl = curl_init();
 $data_entity = $_REQUEST['entity'];
+$url =  "http://api.vtex.com/nisumusa/dataentities/" .  $data_entity;
+
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://api.vtex.com/nisumusa/dataentities/" + $data_entity,
+  CURLOPT_URL => $url,
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
